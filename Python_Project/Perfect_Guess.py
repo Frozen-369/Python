@@ -20,7 +20,7 @@ while True:
     if guess_count <= 10:
         print(f"Bravo!You are a genius to guess in {guess_count} turns.")
     else:
-        print("You're a dumbass.")
+        print("You're a dumbass.You fool.")
 
     with open("PG_Highscore.txt", "r") as PG_game:
         high_score = int(PG_game.read())
