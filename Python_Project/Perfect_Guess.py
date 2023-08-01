@@ -21,9 +21,15 @@ while True:
         print(f"Bravo!You are a genius to guess in {guess_count} turns.")
     else:
         print("You're a dumbass.You fool.")
+    try:
+        with open("PG_Highscore.txt", "r") as PG_game:
+            high_score = int(PG_game.read())
+    except FileNotFoundError:
+        with open("PG_Highscore.txt", "w") as PG_game:
+            PG_game.write(str(guess_count))
+        with open("PG_Highscore.txt", "r") as PG_game:
+            high_score = int(PG_game.read())
 
-    with open("PG_Highscore.txt", "r") as PG_game:
-        high_score = int(PG_game.read())
     if guess_count < high_score:
         print("You have just broken the high score!")
         with open("PG_Highscore.txt", "w") as PG_game:
